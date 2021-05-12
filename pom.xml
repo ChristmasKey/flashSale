@@ -27,6 +27,7 @@
       <version>4.13</version>
       <scope>test</scope>
     </dependency>
+    <!--mybatis相关依赖-->
     <!--c3p0连接池-->
     <dependency>
       <groupId>com.mchange</groupId>
@@ -74,6 +75,13 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
+      <version>5.1.5.RELEASE</version>
+    </dependency>
+    <!--spring mvc相关依赖-->
+    <!--spring mvc核心包-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
       <version>5.1.5.RELEASE</version>
     </dependency>
   </dependencies>

@@ -6,7 +6,7 @@
 
     <!--开启别名-->
     <typeAliases>
-        <package name="com.djn.entity"/>
+        <package name="com.djn.pojo"/>
     </typeAliases>
 
 </configuration>
