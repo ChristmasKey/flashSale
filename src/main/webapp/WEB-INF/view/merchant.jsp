@@ -8,9 +8,17 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>商家页</title>
 </head>
 <body>
 <h1>商家界面</h1>
+<form action="merchant/insertMerchant">
+    商家姓名：<input name="merchantname"><br>
+    店铺名称：<input name="merchantshopname"><br>
+    商家账号：<input name="merchantaccount"><br>
+    商家密码：<input name="merchantpassword" type="password"><br>
+    经营范围：<input name="merchantscope"><br>
+    <input type="submit" value="提交">
+</form>
 </body>
 </html>

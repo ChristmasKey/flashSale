@@ -22,8 +22,10 @@ public class FsmerchantController {
     }
 
     @RequestMapping("insertMerchant")
-    public void insertMerchant(Fsmerchant fsmerchant) {
+    public String insertMerchant(Fsmerchant fsmerchant) {
+        System.out.println(fsmerchant);
         fsmerchantService.insertMerchant(fsmerchant);
+        return "success";
     }
 
     @RequestMapping("updateMerchant")

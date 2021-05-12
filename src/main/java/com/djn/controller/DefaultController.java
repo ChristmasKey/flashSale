@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("")
 public class DefaultController {
 
-    @RequestMapping("")
+    @RequestMapping("merchant")
     public String GoTo() {
+        System.out.println("中国");
         return "merchant";
     }
 }
