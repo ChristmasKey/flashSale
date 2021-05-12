@@ -20,11 +20,61 @@
   </properties>
 
   <dependencies>
+    <!--单元测试-->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>4.13</version>
       <scope>test</scope>
+    </dependency>
+    <!--c3p0连接池-->
+    <dependency>
+      <groupId>com.mchange</groupId>
+      <artifactId>c3p0</artifactId>
+      <version>0.9.5.2</version>
+    </dependency>
+    <!--mysql驱动-->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.15</version>
+    </dependency>
+    <!--mybatis核心-->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>3.5.0</version>
+    </dependency>
+    <!--mybatis适配spring-->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis-spring</artifactId>
+      <version>2.0.0</version>
+    </dependency>
+    <!--spring相关依赖-->
+    <!--web应用开发核心包-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>5.2.4.RELEASE</version>
+    </dependency>
+    <!--数据库表与对象实体映射包-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-orm</artifactId>
+      <version>5.1.5.RELEASE</version>
+    </dependency>
+    <!--spring表达式语言包-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-expression</artifactId>
+      <version>5.1.5.RELEASE</version>
+    </dependency>
+    <!--IOC操作核心包-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>5.1.5.RELEASE</version>
     </dependency>
   </dependencies>
 
