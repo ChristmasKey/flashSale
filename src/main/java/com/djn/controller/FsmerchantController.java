@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("merchant")
@@ -14,6 +15,18 @@ public class FsmerchantController {
 
     @Resource
     FsmerchantService fsmerchantService;
+
+    @RequestMapping("add")
+    public String toAdd() {
+        return "merchant/add";
+    }
+
+    @RequestMapping("update")
+    public String toUpdate(HttpServletRequest request, int id) {
+        Fsmerchant fsmerchant = fsmerchantService.queryMerchantById(id);
+        request.setAttribute("merchant",fsmerchant);
+        return "merchant/update";
+    }
 
     @ResponseBody
     @RequestMapping("queryMerchantById")
@@ -25,12 +38,14 @@ public class FsmerchantController {
     public String insertMerchant(Fsmerchant fsmerchant) {
         System.out.println(fsmerchant);
         fsmerchantService.insertMerchant(fsmerchant);
-        return "success";
+        return "merchant/success";
     }
 
     @RequestMapping("updateMerchant")
-    public void updateMerchant(Fsmerchant fsmerchant) {
+    public String updateMerchant(Fsmerchant fsmerchant) {
+        System.out.println(fsmerchant);
         fsmerchantService.updateMerchant(fsmerchant);
+        return "merchant/success";
     }
 
     @RequestMapping("deleteMerchant")

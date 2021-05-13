@@ -16,16 +16,16 @@
         update fsmerchant
         <set>
             <if test="merchantname != null">
-                merchantname = #{}
+                merchantname = #{merchantname},
             </if>
             <if test="merchantshopname != null">
-                merchantshopname = #{merchantshopname}
+                merchantshopname = #{merchantshopname},
             </if>
             <if test="merchantaccount != null">
-                merchantaccount = #{merchantaccount}
+                merchantaccount = #{merchantaccount},
             </if>
             <if test="merchantpassword != null">
-                merchantpassword = #{merchantpassword}
+                merchantpassword = #{merchantpassword},
             </if>
             <if test="merchantscope != null">
                 merchantscope = #{merchantscope}

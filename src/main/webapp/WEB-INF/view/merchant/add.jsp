@@ -8,11 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>商家页</title>
+    <title>新增商家</title>
 </head>
 <body>
 <h1>商家界面</h1>
-<form action="merchant/insertMerchant">
+<form action="insertMerchant">
     商家姓名：<input name="merchantname"><br>
     店铺名称：<input name="merchantshopname"><br>
     商家账号：<input name="merchantaccount"><br>

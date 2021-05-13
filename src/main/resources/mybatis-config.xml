@@ -4,6 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
+    <!--开启日志输出-->
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+
     <!--开启别名-->
     <typeAliases>
         <package name="com.djn.pojo"/>
