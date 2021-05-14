@@ -12,6 +12,7 @@
     <!--开启别名-->
     <typeAliases>
         <package name="com.djn.pojo"/>
+        <package name="com.djn.vo"/>
     </typeAliases>
 
 </configuration>

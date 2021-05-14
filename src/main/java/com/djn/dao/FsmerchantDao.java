@@ -1,6 +1,9 @@
 package com.djn.dao;
 
 import com.djn.pojo.Fsmerchant;
+import com.djn.vo.FsmerchantVo;
+
+import java.util.List;
 
 public interface FsmerchantDao {
 
@@ -11,4 +14,6 @@ public interface FsmerchantDao {
     void updateMerchant(Fsmerchant fsmerchant);
 
     void deleteMerchant(int id);
+
+    List<Fsmerchant> queryMerchantByVo(FsmerchantVo fsmerchantVo);
 }

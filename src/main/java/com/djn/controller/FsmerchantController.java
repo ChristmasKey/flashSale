@@ -2,12 +2,13 @@ package com.djn.controller;
 
 import com.djn.pojo.Fsmerchant;
 import com.djn.service.FsmerchantService;
+import com.djn.vo.FsmerchantVo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 @RequestMapping("merchant")
@@ -28,10 +29,11 @@ public class FsmerchantController {
         return "merchant/update";
     }
 
-    @ResponseBody
     @RequestMapping("queryMerchantById")
-    public Fsmerchant queryMerchantById(int id) {
-        return fsmerchantService.queryMerchantById(id);
+    public String queryMerchantById(HttpServletRequest request, int id) {
+        Fsmerchant fsmerchant = fsmerchantService.queryMerchantById(id);
+        request.setAttribute("merchant",fsmerchant);
+        return "merchant/view";
     }
 
     @RequestMapping("insertMerchant")
@@ -49,7 +51,15 @@ public class FsmerchantController {
     }
 
     @RequestMapping("deleteMerchant")
-    public void deleteMerchant(int id) {
+    public String deleteMerchant(int id) {
         fsmerchantService.deleteMerchant(id);
+        return "merchant/success";
+    }
+
+    @RequestMapping("queryByVo")
+    public String queryByVo(HttpServletRequest request,FsmerchantVo fsmerchantVo) {
+        List<Fsmerchant> fsmerchants = fsmerchantService.queryMerchantByVo(fsmerchantVo);
+        request.setAttribute("merchantList", fsmerchants);
+        return "merchant/list";
     }
 }
