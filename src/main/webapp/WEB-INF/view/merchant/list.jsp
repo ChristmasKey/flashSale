@@ -8,6 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
+    pageContext.setAttribute("basePath",basePath);
     pageContext.setAttribute("merchantList",request.getAttribute("merchantList"));
 %>
 <html>
@@ -15,13 +18,30 @@
     <title>查看多个商家</title>
 </head>
 <body>
-<c:forEach items="${merchantList}" var="merchant">
-    商家姓名：${merchant.merchantname}<br>
-    店铺名称：${merchant.merchantshopname}<br>
-    商家账号：${merchant.merchantaccount}<br>
-    商家密码：${merchant.merchantpassword}<br>
-    经营范围：${merchant.merchantscope}
-    <hr/>
-</c:forEach>
+<div style="text-align: center;"><a href="${basePath}/merchant/toAdd">添加</a></div>
+<table border="2">
+    <tr>
+        <td>商家姓名</td>
+        <td>店铺名称</td>
+        <td>商家账号</td>
+        <td>商家密码</td>
+        <td>经营范围</td>
+        <td>操作</td>
+    </tr>
+    <c:forEach items="${merchantList}" var="merchant">
+        <tr>
+            <td>${merchant.merchantname}</td>
+            <td>${merchant.merchantshopname}</td>
+            <td>${merchant.merchantaccount}</td>
+            <td>${merchant.merchantpassword}</td>
+            <td>${merchant.merchantscope}</td>
+            <td>
+                <a href="${basePath}/merchant/toUpdate?id=${merchant.id}">修改</a>
+                <a href="${basePath}/merchant/deleteMerchant?id=${merchant.id}">删除</a>
+                <a href="${basePath}/merchant/queryMerchantById?id=${merchant.id}">查看</a>
+            </td>
+        </tr>
+    </c:forEach>
+</table>
 </body>
 </html>

@@ -17,7 +17,7 @@
     <title>更新商家</title>
 </head>
 <body>
-<form action="${basePath}/merchant/updateMerchant">
+<form action="${basePath}/merchant/updateMerchant" method="post">
     <input name="id" type="hidden" value="${merchant.id}">
     商家姓名：<input name="merchantname" value="${merchant.merchantname}"><br>
     店铺名称：<input name="merchantshopname" value="${merchant.merchantshopname}"><br>
