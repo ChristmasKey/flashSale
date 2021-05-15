@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.djn.dao.FsuserDao">
+    <!--根据id查询用户-->
+    <select id="queryUserById" resultType="fsuser">
+        select * from fsuser where id = #{id};
+    </select>
+    
+    <!--新增用户-->
+    <insert id="insertUser" parameterType="fsuser">
+        insert into fsuser (username, useraccount, userpassword, usergender, userage, useraddress, useremail)
+        values (#{username},#{useraccount},#{userpassword},#{usergender},#{userage},#{useraddress},#{useremail});
+    </insert>
+
+    <!--更新用户-->
+    <update id="updateUser" parameterType="fsuser">
+        update fsuser
+        <set>
+            <if test="username != null and username != ''">
+                username = #{username},
+            </if>
+            <if test="useraccount != null and useraccount != ''">
+                useraccount = #{useraccount},
+            </if>
+            <if test="userpassword != null and userpassword != ''">
+                userpassword = #{userpassword},
+            </if>
+            <if test="usergender != 0">
+                usergender = #{usergender},
+            </if>
+            <if test="userage > 0">
+                userage = #{userage},
+            </if>
+            <if test="useraddress != null and useraddress != ''">
+                useraddress = #{useraddress},
+            </if>
+            <if test="useremail != null and useremail != ''">
+                useremail = #{useremail}
+            </if>
+        </set>
+        where id = #{id};
+    </update>
+
+    <!--删除用户-->
+    <delete id="deleteUser">
+        delete from fsuser where id = #{id};
+    </delete>
+
+    <sql id="usersql">
+        <if test="customFsuser != null">
+            <if test="customFsuser.username != null and customFsuser.username != ''">
+                and username = #{customFsuser.username},
+            </if>
+            <if test="customFsuser.useraccount != null and customFsuser.useraccount != ''">
+                and useraccount = #{customFsuser.useraccount},
+            </if>
+            <if test="customFsuser.userpassword != null and customFsuser.userpassword != ''">
+                and userpassword = #{customFsuser.userpassword},
+            </if>
+            <if test="customFsuser.usergender != 0">
+                and usergender = #{customFsuser.usergender},
+            </if>
+            <if test="customFsuser.userage > 0">
+                and userage = #{customFsuser.userage},
+            </if>
+            <if test="customFsuser.useraddress != null and customFsuser.useraddress != ''">
+                and useraddress = #{customFsuser.useraddress},
+            </if>
+            <if test="customFsuser.useremail != null and customFsuser.useremail != ''">
+                and useremail = #{customFsuser.useremail},
+            </if>
+        </if>
+    </sql>
+
+    <!--批量查询用户-->
+    <select id="queryUserByVo" parameterType="fsuserVo" resultType="fsuser">
+        select *
+        from fsuser
+        <where>
+            <include refid="usersql"/>
+        </where>;
+    </select>
+</mapper>

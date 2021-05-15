@@ -38,14 +38,12 @@ public class FsmerchantController {
 
     @RequestMapping("insertMerchant")
     public String insertMerchant(Fsmerchant fsmerchant) {
-        System.out.println(fsmerchant);
         fsmerchantService.insertMerchant(fsmerchant);
         return "merchant/success";
     }
 
     @RequestMapping("updateMerchant")
     public String updateMerchant(Fsmerchant fsmerchant) {
-        System.out.println(fsmerchant);
         fsmerchantService.updateMerchant(fsmerchant);
         return "merchant/success";
     }
