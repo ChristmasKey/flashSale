@@ -16,7 +16,6 @@
     <title>新增商家</title>
 </head>
 <body>
-<h1>商家界面</h1>
 <form action= "${basePath}/merchant/insertMerchant" method="post">
     商家姓名：<input name="merchantname"><br>
     店铺名称：<input name="merchantshopname"><br>

@@ -16,7 +16,7 @@
     <title>新增用户</title>
 </head>
 <body>
-<form action="${basePath}/user/insertUser">
+<form action="${basePath}/user/insertUser" method="post">
     用户名称：<input name="username"><br>
     用户账号：<input name="useraccount"><br>
     用户密码：<input name="userpassword"><br>

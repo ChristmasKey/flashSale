@@ -5,6 +5,7 @@ import com.djn.service.FsuserService;
 import com.djn.vo.FsuserVo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -36,22 +37,22 @@ public class FsuserController {
         return "user/view";
     }
 
-    @RequestMapping("insertUser")
+    @RequestMapping(value = "insertUser",method = RequestMethod.POST)
     public String insertUser(Fsuser fsuser) {
         fsuserService.insertUser(fsuser);
-        return "user/success";
+        return "redirect:/user/queryByVo";
     }
 
-    @RequestMapping("updateUser")
+    @RequestMapping(value = "updateUser",method = RequestMethod.POST)
     public String updateUser(Fsuser fsuser) {
         fsuserService.updateUser(fsuser);
-        return "user/success";
+        return "redirect:/user/queryByVo";
     }
 
     @RequestMapping("deleteUser")
     public String deleteUser(int id) {
         fsuserService.deleteUser(id);
-        return "user/success";
+        return "redirect:/user/queryByVo";
     }
 
     @RequestMapping("queryByVo")

@@ -17,7 +17,7 @@
     <title>更新用户</title>
 </head>
 <body>
-<form action="${basePath}/user/updateUser">
+<form action="${basePath}/user/updateUser" method="post">
     <input type="hidden" name="id" value="${user.id}">
     用户名称：<input name="username" value="${user.username}"><br>
     用户账号：<input name="useraccount" value="${user.useraccount}"><br>
